@@ -12,7 +12,7 @@ function Home() {
     e.preventDefault();
     setError("");
     try {
-      const response = await fetch("http://localhost:3001/url", {
+      const response = await fetch("https://url-shortner-le4b.onrender.com/url", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ function Home() {
   useEffect(() => {
     const fetchTotalVisits = async () => {
       try {
-        const res = await fetch("http://localhost:3001/url/total-visits");
+        const res = await fetch("https://url-shortner-le4b.onrender.com/url/total-visits");
         const data = await res.json();
         setTotalVisits(data.total);
       } catch (err) {
@@ -95,16 +95,16 @@ function Home() {
           <p>
             Short URL:{" "}
             <a
-              href={`http://localhost:3001/${shortId}`}
+              href={`https://url-shortner-le4b.onrender.com/${shortId}`}
               target="_blank"
               rel="noreferrer"
               onClick={() => handleVisit(shortId)}
             >
-              http://localhost:3001/{shortId}
+              https://url-shortner-le4b.onrender.com/{shortId}
             </a>
             <span
               className="copy-icon"
-              onClick={() => handleCopy(`http://localhost:3001/${shortId}`)}
+              onClick={() => handleCopy(`https://url-shortner-le4b.onrender.com/${shortId}`)}
             >
               📋
             </span>
@@ -120,7 +120,7 @@ function Home() {
           {localLinks.map((link, index) => (
             <li key={index}>
               <a
-                href={`http://localhost:3001/${link.id}`}
+                href={`https://url-shortner-le4b.onrender.com/${link.id}`}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => handleVisit(link.id)}
@@ -130,7 +130,7 @@ function Home() {
               <span
                 className="copy-icon"
                 onClick={() =>
-                  handleCopy(`http://localhost:3001/${link.id}`)
+                  handleCopy(`https://url-shortner-le4b.onrender.com/${link.id}`)
                 }
               >
                 📋
