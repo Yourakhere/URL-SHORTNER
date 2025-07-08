@@ -14,9 +14,7 @@ function Home() {
     try {
       const response = await fetch("https://url-shortner-le4b.onrender.com/url", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
       });
 
@@ -24,12 +22,7 @@ function Home() {
 
       if (response.ok) {
         setShortId(data.id);
-
-        const newLink = {
-          id: data.id,
-          originalUrl: url,
-          visits: 0,
-        };
+        const newLink = { id: data.id, originalUrl: url, visits: 0 };
         const storedLinks = JSON.parse(localStorage.getItem("shortLinks")) || [];
         storedLinks.push(newLink);
         localStorage.setItem("shortLinks", JSON.stringify(storedLinks));
@@ -37,7 +30,7 @@ function Home() {
       } else {
         setError(data.error || "Something went wrong");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to connect to server");
     }
   };
@@ -66,12 +59,9 @@ function Home() {
         const res = await fetch("https://url-shortner-le4b.onrender.com/url/total-visits");
         const data = await res.json();
         setTotalVisits(data.total);
-      } catch (err) {
-        console.error(err);
-      }
+      } catch {}
     };
     fetchTotalVisits();
-
     const storedLinks = JSON.parse(localStorage.getItem("shortLinks")) || [];
     setLocalLinks(storedLinks);
   }, []);
@@ -104,7 +94,9 @@ function Home() {
             </a>
             <span
               className="copy-icon"
-              onClick={() => handleCopy(`https://url-shortner-le4b.onrender.com/${shortId}`)}
+              onClick={() =>
+                handleCopy(`https://url-shortner-le4b.onrender.com/${shortId}`)
+              }
             >
               📋
             </span>
@@ -134,8 +126,8 @@ function Home() {
                 }
               >
                 📋
-              </span>
-              {" | "} Visits: {link.visits}
+              </span>{" "}
+              | Visits: {link.visits}
             </li>
           ))}
         </ul>
