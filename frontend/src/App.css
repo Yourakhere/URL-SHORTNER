@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+input {
+  padding: 0.5rem;
+  width: 300px;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+p {
+  margin-top: 1rem;
+}
+input {
+  padding: 0.5rem;
+  width: 300px;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #f0f0f0;  /* Light background */
+  color: #333;          /* Dark text for contrast */
+}
+
+input::placeholder {
+  color: #666;          /* Softer placeholder */
+}
+
+a {
+  color: #00e0ff;       /* Bright cyan for links */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #22d3ee;       /* Lighter on hover */
+}
+
+.copy-icon {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  transition: color 0.2s ease;
+}
+
+.copy-icon:hover {
+  color: #00e0ff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
