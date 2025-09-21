@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-//https://akurl.vercel.app/
+//https://akurl.vercel.app
 //https://url-shortner-le4b.onrender.com
-
+//https://akurl.onrender.com
 
 function Home() {
   const [url, setUrl] = useState("");
@@ -15,7 +15,7 @@ function Home() {
     e.preventDefault();
     setError("");
     try {
-      const response = await fetch("https://akurl.vercel.app/url", {
+      const response = await fetch("https://akurl.onrender.com/url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
@@ -59,7 +59,7 @@ function Home() {
   useEffect(() => {
     const fetchTotalVisits = async () => {
       try {
-        const res = await fetch("https://akurl.vercel.app/url/total-visits");
+        const res = await fetch("https://akurl.onrender.com/url/total-visits");
         const data = await res.json();
         setTotalVisits(data.total);
       } catch {}
@@ -88,7 +88,7 @@ function Home() {
           <p>
             Short URL:{" "}
             <a
-              href={`https://akurl.vercel.app/${shortId}`}
+              href={`https://akurl.onrender.com/${shortId}`}
               target="_blank"
               rel="noreferrer"
               onClick={() => handleVisit(shortId)}
@@ -98,7 +98,7 @@ function Home() {
             <span
               className="copy-icon"
               onClick={() =>
-                handleCopy(`https://akurl.vercel.app/${shortId}`)
+                handleCopy(`https://akurl.onrender.com/${shortId}`)
               }
             >
               📋
@@ -115,7 +115,7 @@ function Home() {
           {localLinks.map((link, index) => (
             <li key={index}>
               <a
-                href={`https://akurl.vercel.app/${link.id}`}
+                href={`https://akurl.onrender.com/${link.id}`}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => handleVisit(link.id)}
@@ -125,7 +125,7 @@ function Home() {
               <span
                 className="copy-icon"
                 onClick={() =>
-                  handleCopy(`https://akurl.vercel.app/${link.id}`)
+                  handleCopy(`https://akurl.onrender.com/${link.id}`)
                 }
               >
                 📋
@@ -140,4 +140,5 @@ function Home() {
 }
 
 export default Home;
+
 
