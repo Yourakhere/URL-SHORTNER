@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config(); 
 
 const express = require("express");
 const cors = require("cors");
@@ -8,8 +8,15 @@ const { connectionToMongoDB } = require("./connect");
 
 const app = express();
 const PORT = process.env.PORT;  
+ 
+app.use(
+  cors({
+    origin: "https://yourakhere-url-shortner.vercel.app", 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
-app.use(cors());
 app.use(express.json());
 app.use("/url", urlRoutes);
 
@@ -48,4 +55,4 @@ app.get("/:shortId", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`🚀 Server is running on PORT${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server is running on PORT ${PORT}`));
