@@ -93,7 +93,10 @@ function Home() {
               rel="noreferrer"
               onClick={() => handleVisit(shortId)}
             >
+              {/**
               https://url-shortner-le4b.onrender.com/{shortId}
+              */}
+              {shortId}
             </a>
             <span
               className="copy-icon"
@@ -120,7 +123,10 @@ function Home() {
                 rel="noreferrer"
                 onClick={() => handleVisit(link.id)}
               >
+                {/**
                 {link.originalUrl} ➜ {link.id}
+                */}
+                {link.id}
               </a>
               <span
                 className="copy-icon"
@@ -140,5 +146,6 @@ function Home() {
 }
 
 export default Home;
+
 
 
