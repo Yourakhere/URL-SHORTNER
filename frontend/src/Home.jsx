@@ -96,7 +96,7 @@ function Home() {
               {/**
               https://url-shortner-le4b.onrender.com/{shortId}
               */}
-              {shortId}
+              https://akurl.onrender.com/{shortId}
             </a>
             <span
               className="copy-icon"
@@ -126,7 +126,7 @@ function Home() {
                 {/**
                 {link.originalUrl} ➜ {link.id}
                 */}
-                {link.id}
+                https://akurl.onrender.com/${link.id}
               </a>
               <span
                 className="copy-icon"
@@ -146,6 +146,7 @@ function Home() {
 }
 
 export default Home;
+
 
 
 
