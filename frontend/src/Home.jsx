@@ -2,10 +2,9 @@
 //https://url-shortner-le4b.onrender.com
 //https://akurl.onrender.com
 
+ 
 
-
-
-
+  
 import React, { useState, useEffect } from "react";
 import { Link2, Copy, Check, ExternalLink, TrendingUp, Sparkles } from "lucide-react";
 
@@ -47,17 +46,18 @@ function Home() {
     setIsLoading(true);
     
     try {
+      const cleanUrl = url.trim();
       const response = await fetch("https://akurl.onrender.com/url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: cleanUrl }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         setShortId(data.id);
-        const newLink = { id: data.id, originalUrl: url, visits: 0, createdAt: Date.now() };
+        const newLink = { id: data.id, originalUrl: cleanUrl, visits: 0, createdAt: Date.now() };
         const storedLinks = [...localLinks, newLink];
         setLocalLinks(storedLinks);
         setUrl("");
@@ -72,7 +72,8 @@ function Home() {
   };
 
   const handleCopy = (link, id) => {
-    navigator.clipboard.writeText(link).then(() => {
+    const cleanLink = link.trim();
+    navigator.clipboard.writeText(cleanLink).then(() => {
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000);
     });
