@@ -1,6 +1,4 @@
-//const { nanoid } = require("nanoid");
-const { nanoid } = await import('nanoid');
-
+const { nanoid } = require("nanoid");
 const URL = require("../models/url");
 
 async function handleGenerateNewShotURL(req, res) {
@@ -48,3 +46,4 @@ module.exports = {
 };
 
  
+
