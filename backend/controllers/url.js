@@ -1,11 +1,12 @@
 const { nanoid } = require("nanoid");
-const URL = require("../models/url");
+const URL = require("../models/url"); 
+const { generateNanoId } = require("./nanoidHelper");
 
 async function handleGenerateNewShotURL(req, res) {
   const body = req.body;
   if (!body.url) return res.status(400).json({ error: "URL is required" });
 
-  const shortID = nanoid(8);
+  const shortID = await generateNanoId(8);
 
   await URL.create({
     shortId: shortID,
@@ -15,7 +16,7 @@ async function handleGenerateNewShotURL(req, res) {
 
   return res.json({ id: shortID });
 }
-
+  
 async function handleGenerateAnalytics(req, res) {
   const shortId = req.params.shortId;
   const result = await URL.findOne({ shortId });
@@ -29,6 +30,7 @@ async function handleGenerateAnalytics(req, res) {
     analytics: result.visitHistory,
   });
 } 
+
 async function handleGetTotalVisits(req, res) {
   try {
     const urls = await URL.find({});
@@ -44,6 +46,3 @@ module.exports = {
   handleGenerateAnalytics,
   handleGetTotalVisits
 };
-
- 
-
