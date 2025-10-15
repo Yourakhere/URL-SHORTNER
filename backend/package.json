@@ -1,21 +1,29 @@
 {
-  "name": "backend",
+  "name": "url-shortener-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for URL shortener app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "mongodb",
+    "url-shortener",
+    "api"
+  ],
+  "author": "Abhishek Kumar",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.0.1",
-    "express": "^5.1.0",
-    "mongoose": "^8.16.1",
-    "nanoid": "^5.1.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.0",
+    "nanoid": "^5.1.5"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }
