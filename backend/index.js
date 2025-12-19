@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
  
 app.use(
   cors({
-    origin: "*", //https://ak-url.vercel.app
+    origin: "https://ak-url.vercel.app", 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -56,6 +56,7 @@ app.get("/:shortId", async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`🚀 Server is running on PORT ${PORT}`));
+
 
 
 
