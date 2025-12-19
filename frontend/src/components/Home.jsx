@@ -81,19 +81,23 @@ function Home() {
   };
 
   useEffect(() => {
-    const fetchTotalVisits = async () => {
-  try {
-    const res = await fetch("https://akurl.onrender.com/url/total-visits");
-    
-    if (!res.ok) throw new Error("Request failed");
+  const fetchTotalVisits = async () => {
+    try {
+      const res = await fetch("https://akurl.onrender.com/url/total-visits");
 
-    const data = await res.json();
+      if (!res.ok) throw new Error("Request failed");
 
-    setTotalVisits(data?.total ?? 0);
-  } catch (err) {
-    setTotalVisits(0);
-  }
-};
+      const data = await res.json();
+
+      setTotalVisits(data?.total ?? 0);
+    } catch (err) {
+      setTotalVisits(0);
+    }
+  };
+
+  fetchTotalVisits();
+}, []);
+
 
 
   return (
@@ -272,4 +276,5 @@ function Home() {
 
 
 export default Home;
+
 
