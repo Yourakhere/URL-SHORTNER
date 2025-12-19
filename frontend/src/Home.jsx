@@ -81,14 +81,18 @@ function Home() {
 
   useEffect(() => {
     const fetchTotalVisits = async () => {
-      try {
-        const res = await fetch("https://akurl.onrender.com/url/total-visits");
-        const data = await res.json();
-        setTotalVisits(data.total);
-      } catch {}
-    };
-    fetchTotalVisits();
-  }, []);
+  try {
+    const res = await fetch("https://akurl.onrender.com/url/total-visits");
+    
+    if (!res.ok) throw new Error("Request failed");
+
+    const data = await res.json();
+
+    setTotalVisits(data?.total ?? 0);
+  } catch (err) {
+    setTotalVisits(0);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
@@ -265,3 +269,4 @@ function Home() {
 }
 
 export default Home;
+
